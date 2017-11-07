@@ -165,7 +165,8 @@
         [self stopTimer];
     }
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timerFire) userInfo:nil repeats:NO];
+    self.timer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(timerFire) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopTimer {
